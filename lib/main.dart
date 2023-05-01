@@ -124,7 +124,10 @@ class MyHomePageState extends State<MyHomePage> {
                                   color: Colors.white,
                                 ),
                               ),
-                              onTap: () => _teddyController.submitPassword(),
+                              onTap: () {
+                                _teddyController.coverEyes(false);
+                                _teddyController.submitPassword();
+                              },
                             )
                           ],
                         ),
