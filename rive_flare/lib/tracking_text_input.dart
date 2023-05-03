@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:animation_rive/input_helper.dart';
+import 'package:rive_flare/input_helper.dart';
 import 'package:flutter/material.dart';
 
 typedef CaretMoved = void Function(Offset? globalCaretPosition);

@@ -1,6 +1,6 @@
-import 'package:animation_rive/signin_button.dart';
-import 'package:animation_rive/teddy_controller.dart';
-import 'package:animation_rive/tracking_text_input.dart';
+import 'package:rive_flare/signin_button.dart';
+import 'package:rive_flare/teddy_controller.dart';
+import 'package:rive_flare/tracking_text_input.dart';
 import 'package:flutter/material.dart';
 import 'package:flare_flutter/flare_actor.dart';
 
