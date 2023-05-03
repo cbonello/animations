@@ -1,5 +1,3 @@
-import 'package:flutter/foundation.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:rive/rive.dart';
@@ -45,14 +43,12 @@ class _LoginFormState extends State<LoginForm> {
   void initState() {
     super.initState();
 
-    final animationURL = defaultTargetPlatform == TargetPlatform.android || defaultTargetPlatform == TargetPlatform.iOS
-        ? 'assets/teddy.riv'
-        : 'teddy.riv';
-    rootBundle.load(animationURL).then(
+    rootBundle.load('assets/teddy.riv').then(
       (data) {
         final file = RiveFile.import(data);
         final artboard = file.mainArtboard;
-        stateMachineController = StateMachineController.fromArtboard(artboard, 'Login Machine');
+        stateMachineController =
+            StateMachineController.fromArtboard(artboard, 'Login Machine');
         if (stateMachineController != null) {
           artboard.addController(stateMachineController!);
 
@@ -110,7 +106,8 @@ class _LoginFormState extends State<LoginForm> {
 
   void login() {
     if (_formKey.currentState!.validate()) {
-      if (_emailController.text == 'admin' && _passwordController.text == 'admin') {
+      if (_emailController.text == 'admin' &&
+          _passwordController.text == 'admin') {
         successTrigger?.fire();
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text("You're in!")),
@@ -172,14 +169,16 @@ class _LoginFormState extends State<LoginForm> {
                                 hintText: "Email/Username",
                                 filled: true,
                                 border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
                                 ),
                                 focusColor: Color(0xffb04863),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: Color(0xffb04863),
                                   ),
-                                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
                                 ),
                               ),
                             ),
@@ -201,14 +200,16 @@ class _LoginFormState extends State<LoginForm> {
                                 hintText: "Password",
                                 filled: true,
                                 border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
                                 ),
                                 focusColor: Color(0xffb04863),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: Color(0xffb04863),
                                   ),
-                                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
                                 ),
                               ),
                             ),
@@ -263,7 +264,8 @@ class _RememberMeState extends State<RememberMe> {
         children: [
           Checkbox(
             value: shouldRemember,
-            onChanged: (value) => setState(() => shouldRemember = value ?? false),
+            onChanged: (value) =>
+                setState(() => shouldRemember = value ?? false),
           ),
           const Text('Remember me'),
         ],
